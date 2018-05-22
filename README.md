@@ -18,3 +18,9 @@ cd kim-trang-calendar
 npm install
 npm start
 ```
+
+## Next Steps
+
+- Add a timestamp/due date to the todo items
+- Convert everything to React components
+- Have some integration with Google Calendar, or iCal

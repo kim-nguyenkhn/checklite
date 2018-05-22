@@ -9,9 +9,9 @@ app.once('ready', () => {
   // Create a new window
   window = new BrowserWindow({
     // Set the initial width
-    width: 700,
+    width: 800,
     // Set the initial height
-    height: 150,
+    height: 600,
     // set the title bar style
     titleBarStyle: 'hidden-inset',
     // set the background color to black
@@ -19,6 +19,9 @@ app.once('ready', () => {
     // Don't show the window until it's ready, this prevents any white flickering
     show: false
   })
+  
+  // TEMP: open dev tools
+  // window.webContents.openDevTools()
 
   window.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
