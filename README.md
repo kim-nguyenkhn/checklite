@@ -2,6 +2,8 @@
 
 Built with ❤️ with [Electron](https://electronjs.org/).
 
+<kbd>![Todo App Screenshot](DOCS/todos_screenshot.png)</kbd>
+
 ## Getting Started
 
 The first thing to do is install Node.js, if you haven't already. The easiest
