@@ -1,8 +1,10 @@
 # Kim & Trang's Desktop Calendar App
 
-Built with ❤️ with [Electron](https://electronjs.org/).
+Download the [MacOS app here.](https://github.com/kim-nguyenkhn/kim-trang-calendar/releases/download/v1.0.0/kim-trang-calendar-darwin-x64.zip)
 
 <kbd>![Todo App Screenshot](DOCS/todos_screenshot.png)</kbd>
+
+Built with ❤️ using [Electron](https://electronjs.org/).
 
 ## Getting Started
 
