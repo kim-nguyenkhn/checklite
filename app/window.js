@@ -1,10 +1,10 @@
 function getTimeNow() {
-  return moment().format('ddd MMM D h:mm:ss A')
+  return moment().format('ddd MMM D | h:mm:ss A')
   // return moment()
 }
 
 function updateTime() {
-  $('#time').text(getTimeNow())
+  $('.time').text(getTimeNow())
 }
 
 $(() => {
