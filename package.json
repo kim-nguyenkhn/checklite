@@ -1,14 +1,35 @@
 {
   "name": "kim-trang-calendar",
-  "version": "1.0.0",
-  "description": "Calendar app built with Electron.",
+  "version": "1.0.2",
+  "description": "Todo app built with Electron.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kim-nguyenkhn/kim-trang-calendar"
+  },
   "main": "app/app.js",
   "scripts": {
-    "start": "electron app/app.js"
+    "start": "electron app/app.js",
+    "release": "build"
   },
   "author": "Kim H. Nguyen <knguyen1@paypal.com> (http://github.paypal.com/knguyen1)",
   "license": "MIT",
   "devDependencies": {
-    "electron": "2.0.1"
+    "electron": "2.0.1",
+    "electron-builder": "20.14.7"
+  },
+  "dependencies": {
+    "electron-log": "2.2.14",
+    "electron-updater": "2.21.10"
+  },
+  "build": {
+    "appId": "com.github.kimnguyenkhn.kimtrangcalendar",
+    "mac": {
+      "category": "productivity",
+      "target": [
+        "zip",
+        "dmg"
+      ],
+      "publish": "github"
+    }
   }
 }

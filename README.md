@@ -4,7 +4,7 @@ Download the [MacOS app here.](https://github.com/kim-nguyenkhn/kim-trang-calend
 
 <kbd>![Todo App Demo Gif](DOCS/demo.gif)</kbd>
 
-Built with ❤️ using [Electron](https://electronjs.org/), and [Electron Packager](https://github.com/electron-userland/electron-packager).
+Built with ❤️ using [Electron](https://electronjs.org/), [Electron Packager](https://github.com/electron-userland/electron-packager), and [Electron Builder](https://github.com/electron-userland/electron-builder) for releases.
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ npm install
 npm start
 ```
 
-## Using Electron-Packager to Cut Releases
+## Using Electron-Packager to Test Releases
 
 Run this in the root directory:
 
@@ -45,8 +45,24 @@ The `Foo Bar.app` folder generated can be executed by a system running OS X, whi
 
 See more on Electron Packager [here](https://github.com/electron-userland/electron-packager).
 
+
+## Recommended GitHub Releases Workflow
+
+1. Bump the "Tag version" to the value of version in your application `package.json`, and prefix it with v. "Release title" can be anything you want. 
+
+For example, if your application `package.json` version is 1.0, your draft's "Tag version" would be v1.0.
+
+2. Draft a new release with `npm run release`. 
+
+3. Push some commits. Every CI build will update the artifacts attached to this draft.
+
+4. Once you are done, publish the release. GitHub will tag the latest commit for you.
+
+The benefit of this workflow is that it allows you to always have the latest artifacts, and the release can be published once it is ready.
+
 ## Next Steps
 
 - Add a timestamp/due date to the todo items
 - Convert everything to React components
 - Have some integration with Google Calendar, or iCal
+- Implement a simple cache
