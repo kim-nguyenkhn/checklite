@@ -11,13 +11,15 @@ $(() => {
   setInterval(updateTime, 1000)
   
   $('.new-todo').on('keydown', (event) => {
+    const text = event.target.value
+    
     // "Enter" key
-    if (event.keyCode === 13) {
-      const text = event.target.value
+    if (event.keyCode === 13 && text !== '') {
       const todoItem = 
-        `<li>
+        `<li class="todo-item">
           <span class="toggle" />
           <label>${text}</label>
+          <span class="remove" />
         </li>`
       // TODO: it'd be nice if this were a React component
       // TODO: maybe with a timestamp/due date?
@@ -30,9 +32,15 @@ $(() => {
     }
   })
   
+  // Mark a todo-item as complete
   $('.todo-list').on('click', '.toggle', (event) => {
-    // TODO: super ugly, need to fix this
     const li = $($(event.target).parent()[0])
     li.toggleClass('completed')
+  })
+  
+  // Remove a todo-item from the list
+  $('.todo-list').on('click', '.remove', (event) => {
+    const li = $($(event.target).parent()[0])
+    li.remove()
   })
 })

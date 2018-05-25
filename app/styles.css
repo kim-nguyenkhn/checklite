@@ -95,3 +95,32 @@ html {
   color: #d9d9d9;
   text-decoration: line-through;
 }
+
+/* "Remove" button styling */
+.todo-list li .remove {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  margin: auto 0;
+  font-size: 30px;
+  color: #cc9a9a;
+  margin-bottom: 11px;
+  transition: color 0.2s ease-out;
+}
+
+.todo-list li .remove:hover {
+	color: #af5b5e;
+}
+
+.todo-list li .remove:after {
+  content: '×'
+}
+
+.todo-list li:hover .remove {
+    display: block;
+}
+
