@@ -1,6 +1,6 @@
 # Kim & Trang's Desktop Calendar App
 
-Download the [MacOS app here.](https://github.com/kim-nguyenkhn/kim-trang-calendar/releases/download/v1.0.1/kim-trang-calendar.app.zip)
+Download the [MacOS app here.](https://github.com/kim-nguyenkhn/kim-trang-calendar/releases)
 
 <kbd>![Todo App Demo Gif](DOCS/demo.gif)</kbd>
 
