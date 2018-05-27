@@ -11,10 +11,10 @@ html {
   padding: 25px;
 }
 
-::selection {
+/* ::selection {
   background:rgba(255, 255, 125, 0.99);
   color:#032764;
-}
+} */
 
 /* Time styling */
 .time {

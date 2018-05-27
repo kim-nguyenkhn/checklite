@@ -28,25 +28,96 @@ app.once('ready', () => {
   })
   
   // Set up the menu
-  let template = []
-  if (process.platform === 'darwin') {
-    // OS X
-    const name = app.getName();
-    template.unshift({
-      label: name,
+  const template = [
+    {
+      label: 'Edit',
+      submenu: [
+        {role: 'undo'},
+        {role: 'redo'},
+        {type: 'separator'},
+        {role: 'cut'},
+        {role: 'copy'},
+        {role: 'paste'},
+        {role: 'pasteandmatchstyle'},
+        {role: 'delete'},
+        {role: 'selectall'}
+      ]
+    },
+    {
+      label: 'View',
+      submenu: [
+        {role: 'reload'},
+        {role: 'forcereload'},
+        {role: 'toggledevtools'},
+        {type: 'separator'},
+        {role: 'resetzoom'},
+        {role: 'zoomin'},
+        {role: 'zoomout'},
+        {type: 'separator'},
+        {role: 'togglefullscreen'}
+      ]
+    },
+    {
+      role: 'window',
+      submenu: [
+        {role: 'minimize'},
+        {role: 'close'}
+      ]
+    },
+    {
+      role: 'help',
       submenu: [
         {
-          label: 'Version ' + app.getVersion(),
+          label: 'kim-trang-calendar GitHub',
+          click () { require('electron').shell.openExternal('https://github.com/kim-nguyenkhn/kim-trang-calendar') }
+        }
+      ]
+    }
+  ]
+  
+  if (process.platform === 'darwin') {
+    // OSX - add to the first column
+    const version = app.getVersion()
+    template.unshift({
+      label: app.getName(),
+      submenu: [
+        {
+          label: 'Version ' + version,
           role: 'about'
         },
-        {
-          label: 'Quit',
-          accelerator: 'Command+Q',
-          click() { app.quit(); }
-        },
+        {type: 'separator'},
+        {role: 'services', submenu: []},
+        {type: 'separator'},
+        {role: 'hide'},
+        {role: 'hideothers'},
+        {role: 'unhide'},
+        {type: 'separator'},
+        {role: 'quit'}
       ]
     })
+  
+    // Edit menu
+    template[1].submenu.push(
+      {type: 'separator'},
+      {
+        label: 'Speech',
+        submenu: [
+          {role: 'startspeaking'},
+          {role: 'stopspeaking'}
+        ]
+      }
+    )
+  
+    // Window menu
+    template[3].submenu = [
+      {role: 'close'},
+      {role: 'minimize'},
+      {role: 'zoom'},
+      {type: 'separator'},
+      {role: 'front'}
+    ]
   }
+  
   const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)
   
