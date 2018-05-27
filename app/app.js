@@ -7,8 +7,10 @@ const url = require('url')
 let window = null
 
 // Electron Logging so it makes debugging easier
+let updater
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
+
 log.info('App starting...');
 
 // Wait until the app is ready
@@ -25,6 +27,60 @@ app.once('ready', () => {
     backgroundColor: "#EEE",
     // Don't show the window until it's ready, this prevents any white flickering
     show: false
+  })
+
+  // export this to MenuItem click callback
+  function checkForUpdates(menuItem, focusedWindow, event) {
+    updater = menuItem
+    updater.enabled = false
+    autoUpdater.checkForUpdates()
+  }
+
+  autoUpdater.on('error', (error) => {
+    dialog.showErrorBox('Error: ', error == null ? "unknown" : (error.stack || error).toString())
+  })
+
+  autoUpdater.on('update-available', () => {
+    dialog.showMessageBox({
+      type: 'info',
+      title: 'Found Updates',
+      message: 'Found updates, do you want to update now?',
+      buttons: ['Sure', 'No']
+    }, (buttonIndex) => {
+      if (buttonIndex === 0) {
+        autoUpdater.downloadUpdate()
+      }
+      else {
+        updater.enabled = true
+        updater = null
+      }
+    })
+  })
+
+  autoUpdater.on('update-not-available', () => {
+    dialog.showMessageBox({
+      title: 'No Updates',
+      message: 'Current version is up-to-date.'
+    })
+    updater.enabled = true
+    updater = null
+  })
+
+  autoUpdater.on('update-downloaded', () => {
+    dialog.showMessageBox({
+      type: 'info',
+      title: 'Install Updates',
+      message: 'A new version has been downloaded, do you want to restart now?',
+      buttons: ['Sure', 'No']
+    }, (buttonIndex) => {
+      if (buttonIndex === 0) {
+        setImmediate(() => autoUpdater.quitAndInstall())
+      }
+      else {
+        updater.enabled = true
+        updater = null
+      }
+    })
   })
   
   // Set up the menu
@@ -77,13 +133,16 @@ app.once('ready', () => {
   
   if (process.platform === 'darwin') {
     // OSX - add to the first column
-    const version = app.getVersion()
     template.unshift({
       label: app.getName(),
       submenu: [
         {
-          label: 'Version ' + version,
-          role: 'about'
+          label: 'Version ' + app.getVersion(),
+          enabled: false
+        },
+        {
+          label: 'Check for Updates',
+          click(menuItem, browserWindow, event) { checkForUpdates(menuItem, browserWindow, event) }
         },
         {type: 'separator'},
         {role: 'services', submenu: []},
@@ -122,7 +181,7 @@ app.once('ready', () => {
   Menu.setApplicationMenu(menu)
   
   // TEMP: open dev tools
-  // window.webContents.openDevTools()
+  window.webContents.openDevTools()
 
   window.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
@@ -132,39 +191,8 @@ app.once('ready', () => {
 
   window.once('ready-to-show', () => {
     window.show()
+    
+    // Immediately downloads an update, and then installs when the app quits
+    autoUpdater.checkForUpdatesAndNotify()
   })
 })
-
-
-// Auto updates
-function sendStatusToWindow(text) {
-  log.info(text);
-  win.webContents.send('message', text);
-}
-
-autoUpdater.on('checking-for-update', () => {
-  sendStatusToWindow('Checking for update...');
-})
-autoUpdater.on('update-available', (info) => {
-  sendStatusToWindow('Update available.');
-})
-autoUpdater.on('update-not-available', (info) => {
-  sendStatusToWindow('Update not available.');
-})
-autoUpdater.on('error', (err) => {
-  sendStatusToWindow('Error in auto-updater. ' + err);
-})
-autoUpdater.on('download-progress', (progressObj) => {
-  let log_message = "Download speed: " + progressObj.bytesPerSecond;
-  log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
-  log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
-  sendStatusToWindow(log_message);
-})
-autoUpdater.on('update-downloaded', (info) => {
-  sendStatusToWindow('Update downloaded');
-});
-
-// Immediately downloads an update, and then installs when the app quits
-app.on('ready', function()  {
-  autoUpdater.checkForUpdatesAndNotify();
-});
