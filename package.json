@@ -4,7 +4,7 @@
   "description": "Todo app built with Electron.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kim-nguyenkhn/kim-trang-calendar"
+    "url": "https://github.com/kim-nguyenkhn/electron-todo-app"
   },
   "main": "app/app.js",
   "scripts": {

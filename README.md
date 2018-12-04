@@ -1,4 +1,4 @@
-# Kim & Trang's Desktop Calendar App
+# Electron Todo App (Desktop)
 
 Download the [MacOS app here.](https://github.com/kim-nguyenkhn/kim-trang-calendar/releases)
 

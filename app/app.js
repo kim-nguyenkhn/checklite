@@ -181,7 +181,7 @@ app.once('ready', () => {
   Menu.setApplicationMenu(menu)
   
   // TEMP: open dev tools
-  window.webContents.openDevTools()
+  // window.webContents.openDevTools()
 
   window.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
