@@ -1,7 +1,7 @@
 {
-  "name": "kim-trang-calendar",
+  "name": "checklite",
   "version": "1.1.0",
-  "description": "Todo app built with Electron.",
+  "description": "Lightweight checklist.",
   "repository": {
     "type": "git",
     "url": "https://github.com/kim-nguyenkhn/electron-todo-app"
@@ -23,7 +23,7 @@
     "electron-updater": "^4.6.5"
   },
   "build": {
-    "appId": "com.github.kimnguyenkhn.kimtrangcalendar",
+    "appId": "com.github.kimnguyenkhn.checklite",
     "mac": {
       "category": "productivity",
       "target": [

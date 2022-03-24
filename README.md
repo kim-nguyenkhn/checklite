@@ -19,8 +19,8 @@ git, check out the
 ```sh
 git clone https://github.com/kim-nguyenkhn/kim-trang-calendar.git
 cd kim-trang-calendar
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 ## Using Electron-Packager to Test Releases
@@ -48,11 +48,11 @@ See more on Electron Packager [here](https://github.com/electron-userland/electr
 
 ## Recommended GitHub Releases Workflow
 
-1. Bump the "Tag version" to the value of version in your application `package.json`, and prefix it with v. "Release title" can be anything you want. 
+1. Bump the "Tag version" to the value of version in your application `package.json`, and prefix it with v. "Release title" can be anything you want.
 
 For example, if your application `package.json` version is 1.0, your draft's "Tag version" would be v1.0.
 
-2. Draft a new release with `npm run release`. 
+2. Draft a new release with `yarn release`.
 
 3. Push some commits. Every CI build will update the artifacts attached to this draft.
 
