@@ -11,11 +11,6 @@ html {
   padding: 25px;
 }
 
-/* ::selection {
-  background:rgba(255, 255, 125, 0.99);
-  color:#032764;
-} */
-
 /* Time styling */
 .time {
   text-align: center;
@@ -58,29 +53,27 @@ input.new-todo::placeholder {
   font-size: 24px;
   border-bottom: 1px solid #ededed;
   padding-left: 15px;
+  font-family: sans-serif;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
 .todo-list li .toggle {
-  margin-left: 15px;
-  height: 40px;
-  width: 40px;
   border: 1px solid #ededed;
   border-radius: 50%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
+  padding: 20px;
 }
 
 .todo-list li label.label-handle {
   word-break: break-all;
-  padding: 15px 60px 15px 15px;
-  margin-left: 45px;
-  margin-bottom: 0;
-  display: block;
   line-height: 1.2;
   transition: color 0.4s;
   font-weight: 300;
+  margin-left: 15px;
+  flex-grow: 2;
   cursor: pointer;
 }
 
@@ -96,17 +89,9 @@ input.new-todo::placeholder {
 
 /* "Remove" button styling */
 .todo-list li .remove {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 10px;
-  bottom: 0;
-  width: 40px;
-  height: 40px;
-  margin: auto 0;
+  visibility: hidden;
   font-size: 30px;
   color: #cc9a9a;
-  margin-bottom: 11px;
   transition: color 0.2s ease-out;
 }
 
@@ -119,6 +104,6 @@ input.new-todo::placeholder {
 }
 
 .todo-list li:hover .remove {
-    display: block;
+  visibility: visible;
 }
 

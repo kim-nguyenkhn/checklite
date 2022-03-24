@@ -17,10 +17,8 @@ $(() => {
     if (event.keyCode === 13 && text !== '') {
       const todoItem =
         `<li class="todo-item">
-          <span>
-            <span class="toggle" />
-            <label class="label-handle">${text}</label>
-          </span>
+          <span class="toggle" />
+          <label class="label-handle">${text}</label>
           <span class="remove" />
         </li>`
 
@@ -46,9 +44,6 @@ $(() => {
 
   // Make the elements draggable
   dragula([document.querySelector('.todo-list')], {
-    moves: (el, container, handle) => {
-      return handle.classList.contains('label-handle');
-    },
-    mirrorContainer: document.querySelector('.todo-list')
+    slideFactorY: 50
   })
 })
