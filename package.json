@@ -19,8 +19,8 @@
     "electron-reloader": "^1.2.3"
   },
   "dependencies": {
-    "electron-log": "2.2.14",
-    "electron-updater": "2.21.10"
+    "electron-log": "^4.4.6",
+    "electron-updater": "^4.6.5"
   },
   "build": {
     "appId": "com.github.kimnguyenkhn.kimtrangcalendar",
@@ -30,7 +30,8 @@
         "zip",
         "dmg"
       ],
-      "publish": "github"
+      "publish": "github",
+      "icon": "./assets/ac-trang.png"
     }
   }
 }
