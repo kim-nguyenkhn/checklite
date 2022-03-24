@@ -82,7 +82,7 @@ app.once('ready', () => {
       }
     })
   })
-  
+
   // Set up the menu
   const template = [
     {
@@ -130,7 +130,7 @@ app.once('ready', () => {
       ]
     }
   ]
-  
+
   if (process.platform === 'darwin') {
     // OSX - add to the first column
     template.unshift({
@@ -154,7 +154,7 @@ app.once('ready', () => {
         {role: 'quit'}
       ]
     })
-  
+
     // Edit menu
     template[1].submenu.push(
       {type: 'separator'},
@@ -166,7 +166,7 @@ app.once('ready', () => {
         ]
       }
     )
-  
+
     // Window menu
     template[3].submenu = [
       {role: 'close'},
@@ -176,10 +176,10 @@ app.once('ready', () => {
       {role: 'front'}
     ]
   }
-  
+
   const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)
-  
+
   // TEMP: open dev tools
   // window.webContents.openDevTools()
 
@@ -191,8 +191,12 @@ app.once('ready', () => {
 
   window.once('ready-to-show', () => {
     window.show()
-    
+
     // Immediately downloads an update, and then installs when the app quits
     autoUpdater.checkForUpdatesAndNotify()
   })
 })
+
+try {
+	require('electron-reloader')(module);
+} catch {}
