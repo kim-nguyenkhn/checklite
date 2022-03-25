@@ -1,6 +1,6 @@
 # Electron Todo App (Desktop)
 
-Download the [MacOS app here.](https://github.com/kim-nguyenkhn/kim-trang-calendar/releases)
+Download the [MacOS app here.](https://github.com/kim-nguyenkhn/checklite/releases)
 
 <kbd>![Todo App Demo Gif](DOCS/demo.gif)</kbd>
 
@@ -17,8 +17,8 @@ git, check out the
 [guide to cloning a repository](https://help.github.com/articles/cloning-a-repository/).
 
 ```sh
-git clone https://github.com/kim-nguyenkhn/kim-trang-calendar.git
-cd kim-trang-calendar
+git clone https://github.com/kim-nguyenkhn/checklite.git
+cd checklite
 yarn install
 yarn start
 ```

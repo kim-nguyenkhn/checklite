@@ -4,7 +4,7 @@
   "description": "Lightweight checklist.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kim-nguyenkhn/electron-todo-app"
+    "url": "https://github.com/kim-nguyenkhn/checklite"
   },
   "main": "app/app.js",
   "scripts": {

@@ -124,8 +124,8 @@ app.once('ready', () => {
       role: 'help',
       submenu: [
         {
-          label: 'kim-trang-calendar GitHub',
-          click () { require('electron').shell.openExternal('https://github.com/kim-nguyenkhn/kim-trang-calendar') }
+          label: 'checklite GitHub',
+          click () { require('electron').shell.openExternal('https://github.com/kim-nguyenkhn/checklite') }
         }
       ]
     }
