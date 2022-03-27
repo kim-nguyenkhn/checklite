@@ -8,18 +8,25 @@
   },
   "main": "app/app.js",
   "scripts": {
-    "start": "electron app/app.js",
-    "release": "build"
+    "start": "electron-forge start",
+    "release": "build",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
-  "author": "Kim H. Nguyen <kim.nguyenkhn@gmail.com> (http://github.paypal.com/kim-nguyenkhn)",
+  "author": "Kim H. Nguyen <kim.nguyenkhn@gmail.com> (http://github.com/kim-nguyenkhn)",
   "license": "MIT",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
     "electron": "^17.2.0",
-    "electron-builder": "^20.14.7",
     "electron-reloader": "^1.2.3"
   },
   "dependencies": {
     "electron-log": "^4.4.6",
+    "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.6.5"
   },
   "build": {
@@ -30,8 +37,34 @@
         "zip",
         "dmg"
       ],
-      "publish": "github",
-      "icon": "./assets/ac-trang.png"
+      "publish": "github"
+    }
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "checklite"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
     }
   }
 }
