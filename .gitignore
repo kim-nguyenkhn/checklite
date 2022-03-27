@@ -3,3 +3,4 @@ node_modules/
 electron-builder.env
 dist/
 out/
+.DS_Store
