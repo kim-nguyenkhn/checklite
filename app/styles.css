@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body, .container-fluid {
   height: 100%;
   background-color: #eee;
@@ -15,10 +19,11 @@ html {
 .time {
   text-align: center;
   margin-bottom: 1em;
+  font-family: sans-serif;
 }
 
 input.new-todo {
-  padding: 16px 16px 16px 16px;
+  padding: 16px;
   margin-bottom: 25px;
   border: none;
   background: rgba(0, 0, 0, 0.003);
@@ -32,7 +37,6 @@ input.new-todo {
   width: 100%;
   font-size: 24px;
   line-height: 1.4em;
-  /* box-sizing: border-box; */
 }
 
 input.new-todo::placeholder {
@@ -43,22 +47,21 @@ input.new-todo::placeholder {
   margin: 0;
   padding: 0;
   list-style: none;
-
-  background: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .todo-list li {
   position: relative;
   font-size: 24px;
-  border-bottom: 1px solid #ededed;
-  padding-left: 15px;
+  background: #fff;
+  border: 1px solid #eee;
   font-family: sans-serif;
   padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .todo-list li .toggle {
@@ -83,7 +86,7 @@ input.new-todo::placeholder {
 }
 
 .todo-list li.completed label {
-  opacity: 0.5;
+  opacity: 0.25;
   text-decoration: line-through;
 }
 

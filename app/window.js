@@ -44,6 +44,7 @@ $(() => {
 
   // Make the elements draggable
   dragula([document.querySelector('.todo-list')], {
+    // mirrorContainer: document.querySelector('.todo-list'),
     slideFactorY: 50
   })
 })
