@@ -31,7 +31,9 @@
   },
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "./assets/icon.png"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
@@ -44,17 +46,6 @@
           "platforms": [
             "darwin"
           ]
-        },
-        {
-          "name": "@electron-forge/maker-dmg",
-          "platforms": [
-            "darwin"
-          ],
-          "config": {
-            "background": "./assets/background.png",
-            "icon": "./assets/icon.png",
-            "name": "checklite"
-          }
         },
         {
           "name": "@electron-forge/maker-deb",
