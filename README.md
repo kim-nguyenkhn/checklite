@@ -1,4 +1,4 @@
-# Electron Todo App (Desktop)
+# Checklite - The lightweight checklist app.
 
 Download the [MacOS app here.](https://github.com/kim-nguyenkhn/checklite/releases)
 
