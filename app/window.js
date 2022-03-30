@@ -18,7 +18,7 @@ $(() => {
       const todoItem =
         `<li class="todo-item">
           <span class="toggle" />
-          <label class="label-handle">${text}</label>
+          <label class="label-handle" contenteditable="true">${text}</label>
           <span class="remove" />
         </li>`
 

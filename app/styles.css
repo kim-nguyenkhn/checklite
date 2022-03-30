@@ -96,6 +96,8 @@ input.new-todo::placeholder {
   font-size: 30px;
   color: #cc9a9a;
   transition: color 0.2s ease-out;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .todo-list li .remove:hover {
